@@ -23,9 +23,11 @@
 4. [Mongoose](https://yarnpkg.com/en/package/mongoose)
 5. [Config](https://yarnpkg.com/en/package/config)
 6. [Request](https://yarnpkg.com/en/package/request)
+7. [Cron](https://yarnpkg.com/en/package/cron)
 
 * yarn add express nodemon concurrently mongoose config
 * yarn add request
+* yarn add cron
 
 ## Client Dependencies
 
