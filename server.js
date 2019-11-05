@@ -3,6 +3,7 @@ const connectDB = require("./config/db");
 const app = express();
 const PORT = process.env.PORT || 4000;
 const path = require("path");
+const getData = require("./utils/Algolia");
 
 connectDB();
 
@@ -17,3 +18,4 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+getData();
