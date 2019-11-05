@@ -14,7 +14,7 @@ const ArticleSchema = mongoose.Schema({
     story_url: String,
     parent_id: Number,
     created_at_i: Number,
-    objectID: String,
+    objectID: {type: String, unique: true},
 });
 
 module.exports = mongoose.model("Article", ArticleSchema);
