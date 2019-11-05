@@ -1,10 +1,9 @@
 import React from 'react';
+import Home from "./components/pages/Home";
 
 const App = () => {
     return (
-        <div>
-            <h1>Welcome</h1>
-        </div>
+        <Home />
     );
 };
 
