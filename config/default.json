@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://reign-design-test-admin:reigndesigntestadmin@reign-design-test-cluster-mip9k.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "secret"
+}

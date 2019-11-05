@@ -13,6 +13,7 @@
 - Configuration to run the full stack project
 - Server Port: 4000
 - Client Port: 3000
+- Mongo Atlas Connection
 
 ## Server Dependencies
 
@@ -20,7 +21,8 @@
 2. [Nodemon](https://yarnpkg.com/en/package/nodemon)
 3. [Concurrently](https://yarnpkg.com/en/package/concurrently)
 4. [Mongoose](https://yarnpkg.com/en/package/mongoose)
-* yarn add express nodemon concurrently mongoose
+5. [Config](https://yarnpkg.com/en/package/config)
+* yarn add express nodemon concurrently mongoose config
 
 ## Client Dependencies
 
