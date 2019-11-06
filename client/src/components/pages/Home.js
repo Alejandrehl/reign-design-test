@@ -39,14 +39,14 @@ const Home = () => {
         const {objectID, story_title, title, author, created_at} = article;
         if (story_title || title) {
             return (
-                <TableRow key={objectID}>
+                <TableRow key={objectID} className={classes.row}>
                     <TableCell align="left">
-                        <Typography>
+                        <Typography className={classes.rowText}>
                             {story_title ? story_title : title}
-                            <small className={classes.authorText}>- {author} -</small>
+                            <label className={classes.authorText}>- {author} -</label>
                         </Typography>
                     </TableCell>
-                    <TableCell align="left">
+                    <TableCell align="left" className={classes.rowText}>
                         {created_at}
                     </TableCell>
                 </TableRow>
@@ -87,8 +87,17 @@ const useStyles = makeStyles(theme => ({
         overflowX: 'auto',
         marginBottom: theme.spacing(2),
     },
+    row: {
+        backgroundColor: "#fff",
+        borderWidth: 1,
+        borderColor: "#ccc"
+    },
+    rowText: {
+        color: "#333",
+        fontSize: 13,
+    },
     authorText: {
-        color: "gray",
+        color: "#999",
         marginLeft: 10
     }
 }));
