@@ -13,6 +13,7 @@ import api from "../../utils/Api";
 const Home = () => {
     const classes = useStyles();
     const [articles, setArticles] = useState(null);
+    const [hover, setHover] = useState(false);
 
     useEffect(() => {
         api("api/articles")
@@ -39,7 +40,12 @@ const Home = () => {
         const {objectID, story_title, title, author, created_at} = article;
         if (story_title || title) {
             return (
-                <TableRow key={objectID} className={classes.row}>
+                <TableRow
+                    key={objectID}
+                    className={`${classes.row} ${hover && classes.rowHover}`}
+                    onMouseEnter={() => setHover(true)}
+                    onMouseLeave={() => setHover(false)}
+                >
                     <TableCell align="left">
                         <Typography className={classes.rowText}>
                             {story_title ? story_title : title}
@@ -88,9 +94,12 @@ const useStyles = makeStyles(theme => ({
         marginBottom: theme.spacing(2),
     },
     row: {
-        backgroundColor: "#fff",
         borderWidth: 1,
-        borderColor: "#ccc"
+        borderColor: "#ccc",
+        backgroundColor: "#fff"
+    },
+    rowHover: {
+        backgroundColor: "#ccc"
     },
     rowText: {
         color: "#333",
