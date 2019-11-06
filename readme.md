@@ -5,7 +5,7 @@
 3. cd reign-design-test
 4. yarn install
 5. yarn run clientInstall
-6. yarn run dev
+6. npm run dev
     - Project will run concurrently backend and frontend
 
 ## Content
@@ -34,8 +34,10 @@
 
 1. [Material UI](https://material-ui.com/)
 2. [Axios](https://yarnpkg.com/en/package/axios)
+3. [Moment](https://yarnpkg.com/en/package/moment)
 
 * yarn add @material-ui/core
 * yarn add @material-ui/icons
 * yarn add typeface-roboto
 * yarn add axios
+* yarn add moment

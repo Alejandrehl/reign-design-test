@@ -4,6 +4,7 @@ import TableCell from "@material-ui/core/TableCell";
 import Typography from "@material-ui/core/Typography";
 import DeleteIcon from '@material-ui/icons/Delete';
 import {makeStyles} from "@material-ui/core";
+import moment from "moment";
 
 const ArticlesTableRow = ({article, removeArticle}) => {
     const classes = useStyles();
@@ -12,6 +13,23 @@ const ArticlesTableRow = ({article, removeArticle}) => {
 
     const handleRemove = id => {
         removeArticle(id);
+    };
+
+    const renderDate = date => {
+        const today = moment();
+        const formatDate = moment(date);
+        const diff = today.diff(formatDate, 'days');
+
+        if (diff === 0) {
+            let hour = formatDate.hour();
+            let minutes = formatDate.minutes();
+            let moment = hour >= 12 ? "pm" : "am";
+
+            return `${hour}:${minutes < 10 ? `0${minutes}` : minutes} ${moment}`;
+        }
+
+        if (diff === 1) return "Yesteday";
+        return moment(date).format("L");
     };
 
     return (
@@ -27,7 +45,7 @@ const ArticlesTableRow = ({article, removeArticle}) => {
                 </Typography>
             </TableCell>
             <TableCell align="left" className={classes.rowText}>
-                {created_at}
+                {renderDate(created_at)}
             </TableCell>
             <TableCell align="left" className={classes.rowText}>
                 {hover && <DeleteIcon onClick={() => handleRemove(_id)}/>}
