@@ -15,6 +15,7 @@ const ArticleSchema = mongoose.Schema({
     parent_id: Number,
     created_at_i: Number,
     objectID: {type: String, unique: true},
+    removed: {type: Boolean, default: false}
 });
 
 module.exports = mongoose.model("Article", ArticleSchema);

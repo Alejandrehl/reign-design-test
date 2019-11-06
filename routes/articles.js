@@ -14,6 +14,23 @@ router.get('/', async (req, res) => {
     }
 });
 
+// @route   PUT api/articles/:id
+// @desc    Update article
+// @access  Public
+router.put('/:id', async (req, res) => {
+    try {
+        let article = await Article.findById(req.params.id);
+        if (!article) return res.status(404).json({msg: 'Article not found.'});
+
+        article.removed = true;
+        article.save();
+
+        res.json(article);
+    } catch (err) {
+        res.status(500).send('Server Error');
+    }
+});
+
 // @route   DELETE api/articles/:id
 // @desc    Delete article
 // @access  Public
@@ -25,7 +42,7 @@ router.delete('/:id', async (req, res) => {
         await Article.findByIdAndRemove(req.params.id);
         res.json({msg: 'Article removed.'});
     } catch (err) {
-        res.status(500).send('Server Error')
+        res.status(500).send('Server Error');
     }
 });
 

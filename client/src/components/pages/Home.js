@@ -12,8 +12,10 @@ const Home = () => {
 
     useEffect(() => {
         api.get("api/articles")
-            .then(res => setArticles(res.data))
-            .catch(e => console.log("Error:", e));
+            .then(res => {
+                const newArticles = res.data.filter(article => !article.removed);
+                setArticles(newArticles);
+            }).catch(e => console.log("Error:", e));
     }, [articles]);
 
     const renderArticles = () => {
@@ -22,7 +24,7 @@ const Home = () => {
     };
 
     const removeArticle = id => {
-        api.delete(`api/articles/${id}`)
+        api.put(`api/articles/${id}`)
             .then(res => console.log(res))
             .catch(e => console.log("Error:", e));
     };
