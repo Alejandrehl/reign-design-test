@@ -11,7 +11,7 @@ const Home = () => {
     const [articles, setArticles] = useState(null);
 
     useEffect(() => {
-        api("api/articles")
+        api.get("api/articles")
             .then(res => setArticles(res.data))
             .catch(e => console.log("Error:", e));
     }, [articles]);
