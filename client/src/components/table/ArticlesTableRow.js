@@ -2,12 +2,17 @@ import React, {useState} from "react";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import Typography from "@material-ui/core/Typography";
+import DeleteIcon from '@material-ui/icons/Delete';
 import {makeStyles} from "@material-ui/core";
 
 const ArticlesTableRow = ({article}) => {
     const classes = useStyles();
-    const {story_title, title, author, created_at} = article;
+    const {objectID, story_title, title, author, created_at} = article;
     const [hover, setHover] = useState(false);
+
+    const handleDelete = id => {
+        console.log("Delete: ", id);
+    };
 
     return (
         <TableRow
@@ -23,6 +28,9 @@ const ArticlesTableRow = ({article}) => {
             </TableCell>
             <TableCell align="left" className={classes.rowText}>
                 {created_at}
+            </TableCell>
+            <TableCell align="left" className={classes.rowText}>
+                {hover && <DeleteIcon onClick={() => handleDelete(objectID)}/>}
             </TableCell>
         </TableRow>
     );
