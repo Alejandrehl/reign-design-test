@@ -33,6 +33,9 @@
 ## Client Dependencies
 
 1. [Material UI](https://material-ui.com/)
+2. [Axios](https://yarnpkg.com/en/package/axios)
+
 * yarn add @material-ui/core
 * yarn add @material-ui/icons
 * yarn add typeface-roboto
+* yarn add axios
