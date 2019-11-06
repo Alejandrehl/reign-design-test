@@ -5,13 +5,13 @@ import Typography from "@material-ui/core/Typography";
 import DeleteIcon from '@material-ui/icons/Delete';
 import {makeStyles} from "@material-ui/core";
 
-const ArticlesTableRow = ({article}) => {
+const ArticlesTableRow = ({article, removeArticle}) => {
     const classes = useStyles();
     const {objectID, story_title, title, author, created_at} = article;
     const [hover, setHover] = useState(false);
 
-    const handleDelete = id => {
-        console.log("Delete: ", id);
+    const handleRemove = id => {
+        removeArticle(id);
     };
 
     return (
@@ -30,7 +30,7 @@ const ArticlesTableRow = ({article}) => {
                 {created_at}
             </TableCell>
             <TableCell align="left" className={classes.rowText}>
-                {hover && <DeleteIcon onClick={() => handleDelete(objectID)}/>}
+                {hover && <DeleteIcon onClick={() => handleRemove(objectID)}/>}
             </TableCell>
         </TableRow>
     );

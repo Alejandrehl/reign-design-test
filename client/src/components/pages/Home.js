@@ -18,7 +18,11 @@ const Home = () => {
 
     const renderArticles = () => {
         if (!articles) return;
-        return <ArticlesTable articles={articles}/>;
+        return <ArticlesTable articles={articles} removeArticle={removeArticle}/>;
+    };
+
+    const removeArticle = id => {
+        console.log("Remove article: ", id);
     };
 
     return (

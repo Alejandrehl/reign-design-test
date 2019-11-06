@@ -5,7 +5,7 @@ import TableBody from "@material-ui/core/TableBody";
 import {makeStyles} from "@material-ui/core";
 import ArticlesTableRow from "./ArticlesTableRow";
 
-const ArticlesTable = ({articles}) => {
+const ArticlesTable = ({articles, removeArticle}) => {
     const classes = useStyles();
 
     return (
@@ -13,7 +13,12 @@ const ArticlesTable = ({articles}) => {
             <Paper className={classes.paper}>
                 <Table size="small" aria-label="a dense table">
                     <TableBody>
-                        {articles.map(article => <ArticlesTableRow article={article} key={article.objectID}/>)}
+                        {articles.map(article => <ArticlesTableRow
+                                article={article}
+                                key={article.objectID}
+                                removeArticle={removeArticle}
+                            />
+                        )}
                     </TableBody>
                 </Table>
             </Paper>
