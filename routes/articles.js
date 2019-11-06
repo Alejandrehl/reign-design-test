@@ -14,4 +14,19 @@ router.get('/', async (req, res) => {
     }
 });
 
+// @route   DELETE api/articles/:id
+// @desc    Delete article
+// @access  Public
+router.delete('/:id', async (req, res) => {
+    try {
+        let article = await Article.findById(req.params.id);
+        if (!article) return res.status(404).json({msg: 'Article not found.'});
+
+        await Article.findByIdAndRemove(req.params.id);
+        res.json({msg: 'Article removed.'});
+    } catch (err) {
+        res.status(500).send('Server Error')
+    }
+});
+
 module.exports = router;

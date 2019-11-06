@@ -22,7 +22,9 @@ const Home = () => {
     };
 
     const removeArticle = id => {
-        console.log("Remove article: ", id);
+        api.delete(`api/articles/${id}`)
+            .then(res => console.log(res))
+            .catch(e => console.log("Error:", e));
     };
 
     return (

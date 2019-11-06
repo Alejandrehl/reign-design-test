@@ -7,7 +7,7 @@ import {makeStyles} from "@material-ui/core";
 
 const ArticlesTableRow = ({article, removeArticle}) => {
     const classes = useStyles();
-    const {objectID, story_title, title, author, created_at} = article;
+    const {_id, story_title, title, author, created_at} = article;
     const [hover, setHover] = useState(false);
 
     const handleRemove = id => {
@@ -30,7 +30,7 @@ const ArticlesTableRow = ({article, removeArticle}) => {
                 {created_at}
             </TableCell>
             <TableCell align="left" className={classes.rowText}>
-                {hover && <DeleteIcon onClick={() => handleRemove(objectID)}/>}
+                {hover && <DeleteIcon onClick={() => handleRemove(_id)}/>}
             </TableCell>
         </TableRow>
     );
