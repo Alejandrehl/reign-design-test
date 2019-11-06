@@ -14,6 +14,7 @@
 - Server Port: 4000
 - Client Port: 3000
 - Mongo Atlas Connection
+- utils/Algolia Contains cron job
 
 ## Server Dependencies
 
